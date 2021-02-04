@@ -1,3 +1,5 @@
+import replace from 'rollup-plugin-replace';
+import { wrapRollupPlugin } from 'es-dev-server-rollup';
 // import { hmrPlugin, presets } from '@open-wc/dev-server-hmr';
 
 /** Use Hot Module replacement by adding --hmr to the start command */
@@ -20,6 +22,7 @@ export default /** @type {import('@web/dev-server').DevServerConfig} */ ({
   // },
 
   plugins: [
+    wrapRollupPlugin(replace({ include: ['**/*.js'], 'process.env': true } )),
     /** Use Hot Module Replacement by uncommenting. Requires @open-wc/dev-server-hmr plugin */
     // hmr && hmrPlugin({ exclude: ['**/*/node_modules/**/*'], presets: [presets.litElement] }),
   ],
