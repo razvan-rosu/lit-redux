@@ -1,3 +1,3 @@
-import { MyComponent } from './src/MyComponent.js';
+import { MyComponent } from './packages/MyComponent.js';
 
 window.customElements.define('my-component', MyComponent);
